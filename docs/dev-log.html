@@ -64,6 +64,11 @@
             <td class="status-active">進行中</td>
             <td>ユーザー側で排気・乾燥環境を準備中</td>
           </tr>
+          <tr>
+            <td>Phase 1-3 プロトタイプ設計</td>
+            <td class="status-done">完了</td>
+            <td>検証用モジュールの寸法・仕様を決定</td>
+          </tr>
         </tbody>
       </table>
 
@@ -90,6 +95,12 @@
             <td>2026-06-13</td>
             <td>水管理方式として<strong>カスケード循環式NFT</strong>を採用</td>
             <td>土を使わず、かつ水が滞留して腐敗するのを防ぐため、上から下へ流し続ける方式が壁面縦型レイアウトに最適と判断</td>
+            <td><a href="system-architecture.html">システムアーキテクチャ設計</a></td>
+          </tr>
+          <tr>
+            <td>2026-06-13</td>
+            <td>培地として激落ちくん（メラミンスポンジ）を<strong>不採用</strong>とし、ウレタンスポンジを採用</td>
+            <td>メラミンスポンジは目が細かすぎて根が貫通できず、根腐れの原因となるため。安価な台所用ウレタンスポンジで代用する</td>
             <td><a href="system-architecture.html">システムアーキテクチャ設計</a></td>
           </tr>
         </tbody>
@@ -149,6 +160,21 @@
         </div>
         <p>
           本プロジェクトが長期的なR&Dになることを見据え、GitHubリポジトリ（<code>makoto55879/hydroponic</code>）に <code>docs</code> フォルダを作成し、HTML形式でドキュメントサイトを構築・運用していくことで合意。
+        </p>
+      </div>
+
+      <div class="log-entry">
+        <h3>Phase 1-3 着手：プロトタイプの仕様決定</h3>
+        <div class="log-meta">
+          <span class="log-type log-type-decision">技術的判断</span>
+          2026-06-13
+        </div>
+        <p>
+          <strong>検討内容:</strong> モデリングに向けた具体的な寸法や、検証（PoC）の優先順位について協議。
+        </p>
+        <p>
+          <strong>結論:</strong> 壁面固定テストと水漏れテストを同時に行うため、Bambu Lab A1の造形エリアに収まる「Skadisボード1枚」＋「横2ポットの小型プランター」をセットでプロトタイプとして設計することに決定。<br>
+          また、培地として検討していたメラミンスポンジは水耕栽培に不適（根腐れの原因）であることが判明したため、安価なウレタンスポンジを採用することとした。
         </p>
       </div>
 
