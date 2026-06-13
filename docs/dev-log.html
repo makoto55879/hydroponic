@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>開発ログ | 3Dプリンター水耕栽培 R&D</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="site-title">水耕栽培 R&D</div>
+      <p class="project-name">3Dプリンター製 モジュール式水耕栽培システム</p>
+      
+      <div class="nav-section-label">概要</div>
+      <ul>
+        <li><a href="index.html">トップ</a></li>
+      </ul>
+      
+      <div class="nav-section-label">レポート・設計</div>
+      <ul>
+        <li><a href="system-architecture.html">システムアーキテクチャ設計</a></li>
+      </ul>
+      
+      <div class="nav-section-label">ナレッジ資料</div>
+      <ul>
+        <li><a href="knowledge-phase1.html">Phase 1 ナレッジ（準備中）</a></li>
+      </ul>
+      
+      <div class="nav-section-label">ログ</div>
+      <ul>
+        <li><a href="dev-log.html" class="active">開発・検討ログ</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <div class="doc-meta">版数: 1.0 &nbsp;|&nbsp; 更新日: 2026-06-13 &nbsp;|&nbsp; 対象: Phase 1-1</div>
+      <h1 class="page-title">開発・検討ログ</h1>
+
+      <p>
+        本ページは、設計方針の変更・協議の経緯・実装の進捗を時系列で記録する開発ログです。<br>
+        息の長いR&Dプロジェクトとして、試行錯誤の過程や技術的判断の理由を後から振り返れるように記録します。
+      </p>
+
+      <div class="related-links">
+        <strong>関連資料</strong>
+        <a href="system-architecture.html">システムアーキテクチャ設計</a>
+      </div>
+
+      <!-- ===== 1. 現在地サマリー ===== -->
+      <h2>1. 現在地サマリー（2026-06-13 時点）</h2>
+      <table>
+        <thead>
+          <tr><th>区分</th><th>状態</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Phase 1-1 要件定義・初期設計</td>
+            <td class="status-done">完了</td>
+            <td>壁面固定方法、水耕方式、素材（PETG）の方針合意</td>
+          </tr>
+          <tr>
+            <td>Phase 1-2 PETG環境整備</td>
+            <td class="status-active">進行中</td>
+            <td>ユーザー側で排気・乾燥環境を準備中</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ===== 2. 方針変更・決定事項一覧 ===== -->
+      <h2>2. 方針変更・決定事項一覧</h2>
+      <table>
+        <thead>
+          <tr><th>日付</th><th>決定事項</th><th>理由</th><th>影響資料</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-06-13</td>
+            <td>水に触れる部品の素材をPLAから<strong>PETG</strong>へ変更</td>
+            <td>PLAは耐水性が低く、積層間からの水漏れや長期間の浸水による劣化リスクが高いため</td>
+            <td><a href="system-architecture.html">システムアーキテクチャ設計</a></td>
+          </tr>
+          <tr>
+            <td>2026-06-13</td>
+            <td>HomeRackerを不採用とし、<strong>Skadis互換ボード</strong>を壁面固定のベースに採用</td>
+            <td>HomeRackerは自立式フレーム向けであり、壁面への豆ピン固定による荷重分散にはSkadisの面構造が適しているため</td>
+            <td><a href="system-architecture.html">システムアーキテクチャ設計</a></td>
+          </tr>
+          <tr>
+            <td>2026-06-13</td>
+            <td>水管理方式として<strong>カスケード循環式NFT</strong>を採用</td>
+            <td>土を使わず、かつ水が滞留して腐敗するのを防ぐため、上から下へ流し続ける方式が壁面縦型レイアウトに最適と判断</td>
+            <td><a href="system-architecture.html">システムアーキテクチャ設計</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ===== 3. 時系列ログ ===== -->
+      <h2>3. 時系列ログ</h2>
+
+      <div class="log-entry">
+        <h3>Phase 1-1 着手：プロジェクト立ち上げと要件ヒアリング</h3>
+        <div class="log-meta">
+          <span class="log-type log-type-progress">進捗</span>
+          2026-06-13
+        </div>
+        <p>
+          ユーザーより「廊下壁面を利用した3Dプリンター製モジュール式水耕栽培」のアイデアと参考画像が提示される。<br>
+          設置環境（幅40cm、奥行き15cm、豆ピン固定）や、対象植物（葉物野菜）、3Dプリンターの仕様（Bambu Lab A1）などをヒアリングし、要件を定義。
+        </p>
+      </div>
+
+      <div class="log-entry">
+        <h3>壁面固定方法の検討（HomeRacker vs Skadis）</h3>
+        <div class="log-meta">
+          <span class="log-type log-type-decision">技術的判断</span>
+          2026-06-13
+        </div>
+        <p>
+          <strong>検討内容:</strong> ユーザーより、Bambu StudioのHomeRackerとSkadisを組み合わせて豆ピン固定を代替する案が提示された。
+        </p>
+        <p>
+          <strong>調査結果:</strong> HomeRackerは自立式ラックの骨組みを作るシステムであり、壁面固定を前提としていない。一方、Skadis（IKEA互換ペグボード）の3Dプリント版はA1の造形エリアに収まり、皿穴を使って多数の豆ピンで壁に固定することで荷重分散が可能。
+        </p>
+        <p>
+          <strong>結論:</strong> Skadis互換ボードを壁面固定のベースとし、そこにプランターモジュールをフックで引っ掛ける構造を採用。
+        </p>
+      </div>
+
+      <div class="log-entry">
+        <h3>素材の再選定（PLAからPETGへ）</h3>
+        <div class="log-meta">
+          <span class="log-type log-type-change">方針変更</span>
+          2026-06-13
+        </div>
+        <p>
+          <strong>課題:</strong> 当初はPLAでの印刷を想定していたが、水耕栽培においては積層間からの水漏れや劣化が避けられない。
+        </p>
+        <p>
+          <strong>対応:</strong> 水に直接触れるプランターモジュールは、耐水性・耐薬品性に優れた<strong>PETG</strong>で印刷することに決定。ユーザー側でPETG印刷に必要な環境（排気設備、フィラメントドライヤー）を整備する方針で合意した。
+        </p>
+      </div>
+
+      <div class="log-entry">
+        <h3>ドキュメント管理方針の決定</h3>
+        <div class="log-meta">
+          <span class="log-type log-type-progress">進捗</span>
+          2026-06-13
+        </div>
+        <p>
+          本プロジェクトが長期的なR&Dになることを見据え、GitHubリポジトリ（<code>makoto55879/hydroponic</code>）に <code>docs</code> フォルダを作成し、HTML形式でドキュメントサイトを構築・運用していくことで合意。
+        </p>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

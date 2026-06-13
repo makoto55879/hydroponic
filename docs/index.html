@@ -1,65 +1,94 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3Dプリンター水耕栽培プロジェクト</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            border-bottom: 2px solid #eaecef;
-            padding-bottom: 10px;
-        }
-        .container {
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        a {
-            color: #0366d6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background: white;
-            border: 1px solid #e1e4e8;
-            border-radius: 4px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>トップ | 3Dプリンター水耕栽培 R&D</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>🌱 3Dプリンター水耕栽培プロジェクト (R&D)</h1>
-    <p>自宅の廊下壁面を利用した、モジュール式水耕栽培システムの開発・研究プロジェクトです。<br>
-    Bambu Lab A1（3Dプリンター）を活用し、限られたスペースでの室内水耕栽培の実現を目指します。</p>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="site-title">水耕栽培 R&D</div>
+      <p class="project-name">3Dプリンター製 モジュール式水耕栽培システム</p>
+      
+      <div class="nav-section-label">概要</div>
+      <ul>
+        <li><a href="index.html" class="active">トップ</a></li>
+      </ul>
+      
+      <div class="nav-section-label">レポート・設計</div>
+      <ul>
+        <li><a href="system-architecture.html">システムアーキテクチャ設計</a></li>
+      </ul>
+      
+      <div class="nav-section-label">ナレッジ資料</div>
+      <ul>
+        <li><a href="knowledge-phase1.html">Phase 1 ナレッジ（準備中）</a></li>
+      </ul>
+      
+      <div class="nav-section-label">ログ</div>
+      <ul>
+        <li><a href="dev-log.html">開発・検討ログ</a></li>
+      </ul>
+    </nav>
 
-    <div class="container">
-        <h2>ドキュメント一覧</h2>
-        <ul>
-            <li>
-                <strong><a href="logs/development_log_v1.html">開発・検討ログ v1</a></strong>
-                <p>プロジェクト立ち上げ時の要件定義、HomeRackerやSkadisの適用検討、水耕栽培方式（カスケード式NFT）の選定プロセスを記録したログです。</p>
-            </li>
-            <li>
-                <strong><a href="design/system_architecture.html">システムアーキテクチャ設計</a></strong>
-                <p>システム全体の構成図やモジュール設計の方針をまとめた設計資料です。</p>
-            </li>
-        </ul>
-    </div>
+    <main class="content">
+      <div class="doc-meta">更新日: 2026-06-13 &nbsp;|&nbsp; Phase 1（立ち上げ・要件定義）進行中</div>
+      <h1 class="page-title">3Dプリンター水耕栽培 R&D プロジェクト</h1>
+
+      <p>
+        本サイトは、自宅の廊下壁面を利用した <strong>モジュール式水耕栽培システム</strong> の開発・研究プロジェクトにおける、ナレッジ資料・設計書・検討ログを一元管理するドキュメントサイトです。<br>
+        Bambu Lab A1（3Dプリンター）を活用し、限られたスペースでの室内水耕栽培の実現を目指します。
+      </p>
+
+      <div class="note">
+        <strong>現在のステータス:</strong>
+        要件定義および初期アーキテクチャ設計を完了。PETG印刷環境の整備およびプロトタイプ設計（Phase 1）へと移行中です。
+      </div>
+
+      <h2>資料一覧</h2>
+      <div class="doc-cards">
+        <div class="doc-card">
+          <span class="card-tag tag-design">設計書</span>
+          <a href="system-architecture.html">システムアーキテクチャ設計</a>
+          <p>システム全体の構成図（カスケード式NFT）や、各モジュール（Skadis互換ボード、プランター等）の設計方針</p>
+        </div>
+        <div class="doc-card">
+          <span class="card-tag tag-log">開発ログ</span>
+          <a href="dev-log.html">開発・検討ログ</a>
+          <p>プロジェクト立ち上げ時の要件定義、HomeRackerやSkadisの適用検討、水耕栽培方式の選定プロセス記録</p>
+        </div>
+      </div>
+
+      <h2>システム概要</h2>
+      <table>
+        <thead>
+          <tr><th>コンポーネント</th><th>内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ハードウェア</td><td>Bambu Lab A1 (造形エリア 256×256×256 mm)</td></tr>
+          <tr><td>壁面固定層</td><td>Skadis互換ペグボード (PLA製) + 豆ピン固定</td></tr>
+          <tr><td>栽培層</td><td>専用プランターモジュール (PETG製)</td></tr>
+          <tr><td>水管理方式</td><td>カスケード循環式NFT (薄膜水耕)</td></tr>
+          <tr><td>水循環ポンプ</td><td>市販の小型水中ポンプ (揚程1.5m〜2m想定)</td></tr>
+          <tr><td>照明</td><td>人工育成ライト (LED)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Phase 進捗</h2>
+      <table>
+        <thead>
+          <tr><th>Phase</th><th>内容</th><th>状態</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Phase 1-1</td><td>要件定義・アーキテクチャ初期設計</td><td class="status-done">完了</td></tr>
+          <tr><td>Phase 1-2</td><td>PETG印刷環境の整備（排気・乾燥）</td><td class="status-active">進行中</td></tr>
+          <tr><td>Phase 1-3</td><td>Skadis互換ボード・プランタープロトタイプのモデリング</td><td class="status-planned">未着手</td></tr>
+          <tr><td>Phase 1-4</td><td>水漏れ・耐荷重テスト（PoC）</td><td class="status-planned">未着手</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
 </body>
 </html>
